@@ -1,0 +1,42 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
+) !default;
+
+$f-base: 14px/1.4 "Open Sans", sans-serif;
+$f-title: "Philosopher", serif;
+$f-color: #555;
+
+$l-g: 15px;
+$lg: $l-g;
+
+$c-main: #333333;
+$c-brand: #891417;
+$c-sec: #2c3e54;
+$c-text: #000;
+$c-link: inherit;
+$c-active: inherit;
+
+// bootstrap setup
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  xxl: 1400px
+);
+
+@include font("Open Sans", "OpenSans-Regular", 400 );
+// @include font("Philosopher", "philosopher-bold-webfont", 700 );
+// @include font("PT Sans", "pt_sans-web-regular-webfont", 400);
+// @include font("PT Sans", "pt_sans-web-italic-webfont", 400 , italic);
+// @include font("PT Sans", "pt_sans-web-bolditalic-webfont", 700, italic);
+// @include font("PT Sans", "pt_sans-web-bold-webfont", 700);

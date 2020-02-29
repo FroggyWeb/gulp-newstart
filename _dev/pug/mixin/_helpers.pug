@@ -1,0 +1,38 @@
+- var svgSpriteMono = 'img/sprite-mono.svg'
+- var svgSpriteColor = 'img/sprite-color.svg'
+
+mixin svgMono(name, modClass)
+  if modClass == undefined
+    - var modClass = ''
+  else
+    - var modClass = ' ' + modClass
+  svg(class="ico ico-mono-" + name + modClass)
+    use(xlink:href= svgSpriteMono + '#ico-mono-' + name)
+
+mixin svgColor(name, modClass)
+  if modClass == undefined
+    - var modClass = ''
+  else
+    - var modClass = ' ' + modClass
+  svg(class="ico ico-color-" + name + modClass)
+    use(xlink:href= svgSpriteColor + '#ico-color-' + name)
+
+
+mixin icon(name,mod)
+  - mod = mod || ''
+  svg(class="svg-icon icon-" + name + ' ' + mod)
+    use(xlink:href="#" + name)
+
+
+//-  NAVIGATION
+
+mixin menu()
+  ul.menu__list
+    each item in menudata
+      li.menu__item(class=(current === item.name || section === item.name ? "active" : undefined) class=(item.sub)? "parent" : undefined)
+        a.menu__link(href="#") #{item.name}
+        if item.sub
+          ul.menu__sublist
+            each subitem in item.sub
+              li.menu__subitem(class=(current === subitem ? "active" : undefined))
+                a.menu__link(href="#")= subitem
