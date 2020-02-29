@@ -3,7 +3,7 @@ import errorHandler from './util/errors';
 
 const production =
   util.env.production || util.env.prod || util.env._.indexOf('build') !== -1 || false;
-const destPath = 'dist';
+const destPath = 'assets';
 
 const config = {
   env: 'development',
@@ -12,8 +12,6 @@ const config = {
   src: {
     root: '_dev',
     templates: '_dev/pug',
-    components: '_dev/components',
-    pagelist: '_dev/index.yaml',
     sass: '_dev/sass',
     sassGen: '_dev/sass/generated',
     js: '_dev/js',
@@ -23,11 +21,12 @@ const config = {
     iconsPng: '_dev/icons/png',
     iconsSvgMono: '_dev/icons/svg-mono',
     iconsSvgColor: '_dev/icons/svg-colors',
-    iconsFont: '_dev/icons',
-    fonts: '_dev/fonts',
-    video: '_dev/video',
-    php: '_dev/php',
-    json: '_dev/json',
+    iconsFont: '_dev/icons'
+    // components: '_dev/components',
+    // fonts: '_dev/fonts',
+    // video: '_dev/video',
+    // php: '_dev/php',
+    // json: '_dev/json',
   },
   dest: {
     root: destPath,
@@ -35,10 +34,10 @@ const config = {
     css: destPath + '/css',
     js: destPath + '/js',
     img: destPath + '/img',
-    fonts: destPath + '/fonts',
-    video: destPath + '/video',
-    php: destPath + '/php',
-    json: destPath + '/json',
+    // fonts: destPath + '/fonts',
+    // video: destPath + '/video',
+    // php: destPath + '/php',
+    // json: destPath + '/json',
   },
 
   setEnv: function(env) {

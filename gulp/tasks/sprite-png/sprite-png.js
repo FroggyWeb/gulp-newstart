@@ -18,7 +18,7 @@ const task = () => {
       spritesmith({
         imgName: 'sprite.png',
         cssName: '_sprite-png.scss',
-        imgPath: '../img/sprite.png',
+        imgPath: config.dest.img + '../img/sprite.png',
         retinaSrcFilter: config.src.iconsPng + '/*@2x.png',
         retinaImgName: 'sprite@2x.png',
         retinaImgPath: '../img/sprite@2x.png',

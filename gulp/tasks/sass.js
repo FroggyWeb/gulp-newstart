@@ -1,11 +1,12 @@
 import gulp from 'gulp';
 import util from 'gulp-util';
+import replace from 'gulp-replace';
 import sass from 'gulp-sass';
 import globImporter from 'node-sass-glob-importer';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import svginline from 'postcss-inline-svg';
+// import svginline from 'postcss-inline-svg';
 import sorting from 'postcss-sorting';
 import flexbugs from 'postcss-flexbugs-fixes';
 import cssnano from 'cssnano';
@@ -22,7 +23,7 @@ import config from '../config';
 // easings - gets easings.net -- https://github.com/postcss/postcss-easings
 
 const processors = [
-  svginline(),
+  // svginline(),
   autoprefixer({
     remove: true, // remove outdated prefixes?
     // cascade: false
@@ -60,6 +61,8 @@ const task = () =>
       })
     )
     .on('error', config.errorHandler)
+    .pipe(replace('../../../', '../'))
+    .pipe(replace('../../', '../'))
     .pipe(postcss(processors))
     .pipe(config.production ? util.noop() : sourcemaps.write('.'))
     .pipe(config.production ? postcss([cssnano(cssNanoParams)]) : util.noop())

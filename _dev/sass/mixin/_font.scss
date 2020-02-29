@@ -4,7 +4,7 @@
 
 // Fonts mixin
 @mixin font($font-family, $filename, $weight: normal, $style: normal) {
-  $folder: "../../fonts/";
+  $folder: "../../../assets/fonts/";
   @font-face {
     font-family: $font-family;
     src: url('#{$folder}/#{$filename}.woff2'),
@@ -13,6 +13,7 @@
     font-weight: $weight;
   }
 }
+
 
 // @mixin includeFont($family, $weight, $style, $filename, $path) {
 //   @font-face {

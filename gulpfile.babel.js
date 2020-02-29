@@ -38,11 +38,11 @@ const makeBuild = mode => {
   const setMode = mode === 'prodcution' ? setmodeProd : setmodeDev;
   return gulp.series(
     setMode,
-    'clear',
+    // 'clear',
     gulp.parallel('sprite:svg', 'sprite:png'),
     gulp.parallel('sass', 'javascript'),
     'pug',
-    gulp.parallel('images', 'copy')
+    // gulp.parallel('images', 'copy')
   );
 };
 
@@ -53,12 +53,12 @@ gulp.task(
   'watch',
   gulp.parallel(
     'sass:watch',
-    'copy:watch',
     'pug:watch',
     'javascript:watch',
-    'images:watch',
     'sprite:svg:watch',
     'sprite:png:watch'
+    // 'copy:watch',
+    // 'images:watch',
   )
 );
 
