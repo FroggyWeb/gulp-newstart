@@ -3,7 +3,7 @@ import errorHandler from './util/errors';
 
 const production =
   util.env.production || util.env.prod || util.env._.indexOf('build') !== -1 || false;
-const destPath = 'assets';
+const destPath = './assets';
 
 const config = {
   env: 'development',
@@ -21,8 +21,8 @@ const config = {
     iconsPng: '_dev/icons/png',
     iconsSvgMono: '_dev/icons/svg-mono',
     iconsSvgColor: '_dev/icons/svg-colors',
-    iconsFont: '_dev/icons'
-    // components: '_dev/components',
+    iconsFont: '_dev/icons',
+    components: '_dev/js/components',
     // fonts: '_dev/fonts',
     // video: '_dev/video',
     // php: '_dev/php',

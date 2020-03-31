@@ -45,26 +45,25 @@ const cssNanoParams = {
 // Sass task
 const task = () =>
   gulp
-    .src(config.src.sass + '/*.{sass,scss}')
+    .src(config.src.sass + "/*.{sass,scss}")
     .pipe(config.production ? util.noop() : sourcemaps.init())
     .pipe(
       plumber({
-        errorHandler: config.errorHandler,
+        errorHandler: config.errorHandler
       })
     )
     .pipe(
       sass({
         importer: globImporter(),
-        outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
+        outputStyle: config.production ? "compact" : "expanded", // nested, expanded, compact, compressed
         precision: 5,
-        includePaths: ['node_modules', config.src.sass],
+        includePaths: ["node_modules", config.src.sass]
       })
     )
-    .on('error', config.errorHandler)
-    .pipe(replace('../../../', '../'))
-    .pipe(replace('../../', '../'))
+    .on("error", config.errorHandler)
+    .pipe(replace(new RegExp("(../){2,}", "g"), "../"))
     .pipe(postcss(processors))
-    .pipe(config.production ? util.noop() : sourcemaps.write('.'))
+    .pipe(config.production ? util.noop() : sourcemaps.write("."))
     .pipe(config.production ? postcss([cssnano(cssNanoParams)]) : util.noop())
     .pipe(gulp.dest(config.dest.css));
 

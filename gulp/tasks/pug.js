@@ -11,12 +11,14 @@ pugbem.b = true;
 
 const renderHtml = onlyChanged =>
   gulp
-    .src([config.src.templates + '/[^_]*.pug'])
+    .src([config.src.templates + "/[^_]*.pug"])
     .pipe(plumber({ errorHandler: config.errorHandler }))
-    .pipe(gulpif(onlyChanged, changed(config.dest.html, { extension: '.html' })))
+    .pipe(
+      gulpif(onlyChanged, changed(config.dest.html, { extension: ".html" }))
+    )
     .pipe(pug({ pretty: true, plugins: [pugbem] }))
-    .pipe(replace('../../', './'))
-    .pipe(replace('../', './'))
+    .pipe(replace(new RegExp("(\.\.\/){2,}", "g"), './'))
+    // .pipe(replace("../", "./"))
     .pipe(gulp.dest(config.dest.html));
 
 const buildPug = () => renderHtml();
@@ -28,3 +30,6 @@ const watch = () => () => {
 
 module.exports.build = buildPug;
 module.exports.watch = watch;
+
+
+

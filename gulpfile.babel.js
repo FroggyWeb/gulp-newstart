@@ -12,15 +12,15 @@ gulp.task('javascript', tBuild('javascript'));
 gulp.task('images', () => tBuild('images'));
 gulp.task('sprite:svg', tBuild('sprite-svg/sprite-svg'));
 gulp.task('sprite:png', () => tBuild('sprite-png/sprite-png'));
-gulp.task('copy', tBuild('copy'));
+// gulp.task('copy', tBuild('copy'));
 
 gulp.task('sass:watch', tWatch('sass'));
-gulp.task('copy:watch', tWatch('copy'));
 gulp.task('pug:watch', tWatch('pug'));
 gulp.task('javascript:watch', tWatch('javascript'));
-gulp.task('images:watch', tWatch('images'));
 gulp.task('sprite:svg:watch', tWatch('sprite-svg/sprite-svg'));
 gulp.task('sprite:png:watch', tWatch('sprite-png/sprite-png'));
+// gulp.task('copy:watch', tWatch('copy'));
+// gulp.task('images:watch', tWatch('images'));
 
 const setmodeProd = done => {
   config.setEnv('production');
